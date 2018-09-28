@@ -28,7 +28,7 @@ paginate: 10
 permalink: /:year/:title/
 markdown: kramdown
 highlighter: rouge
-
+remote_theme: joshgerdes/jekyll-uno
 sass:
     sass_dir: _sass
     style: compressed
