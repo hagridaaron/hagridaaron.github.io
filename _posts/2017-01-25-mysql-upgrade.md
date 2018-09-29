@@ -3,17 +3,17 @@ layout: post
 title: Upgrading MySQL 5.x to 5.7 In-Place  
 ---
 
-##Upgrading MySQL 5.x to 5.7
+## Upgrading MySQL 5.x to 5.7
 
 We're going to do something quite unsupported in the official documentation... Jumping many versions at a single time.
 
-###Download
+### Download
 First, download the source 
 ~~~
 wget http://dev.mysql.com/get/mysql57-community-release-el6-9.noarch.rpm
 ~~~
 
-###Install
+### Install
 From there we can use the `localinstall` command inside yum to install local rpm packages.
 ~~~
 yum localinstall mysql57-community-release-el6-9.noarch.rpm
@@ -23,7 +23,7 @@ We next need to stop the current mysqld service on the machine.
 /etc/init.d/mysqld stop
 ~~~
 
-###Upgrade
+### Upgrade
 Then we can being the upgrade.
 ~~~
 yum update mysql
@@ -58,7 +58,7 @@ double check that the root password is working before you end the job.
 mysql -u root -p
 ~~~
 
-###Troubleshoot
+### Troubleshoot
 You'll have to troubleshoot the errors that come up if mysql doesn't start. Check /var/run/mysql/[hostname].err
 
 I found this log by doing 

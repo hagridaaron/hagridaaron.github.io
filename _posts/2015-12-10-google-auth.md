@@ -2,7 +2,7 @@
 layout: post
 title: Adding Google Authenticator to Ubuntu 14.04
 ---
-###In this article we will discuss and walk through an installation of the Google Authentication PAM module on Ubuntu Linux 14.04
+### In this article we will discuss and walk through an installation of the Google Authentication PAM module on Ubuntu Linux 14.04
 
 Make sure your apt-get is up to date
 

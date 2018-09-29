@@ -5,7 +5,7 @@ title: Installing DB2 Express-C Database Server
 
 In the 70's IBM started research and development on relational databases. Out of that R&D came the DB2 family of Databases. We will focus on installing the community (free) version of the family. 
 
-##Prerequisites
+## Prerequisites
 
 * Centos >= 6 installed
 * C++ compatibility libraries
@@ -13,7 +13,7 @@ In the 70's IBM started research and development on relational databases. Out of
     yum install compat-libstdc++-33
     yum install libaio
 
-##Install DB2
+## Install DB2
 
 You can find the download for DB2 Express-C [Here](http://www-01.ibm.com/software/data/db2/express-c/download.html).
 
@@ -23,7 +23,7 @@ login as root or use sudo, unzip and install:
     cd expc
     ./db2_install
 
-##Post installation tasks
+## Post installation tasks
 
 Create groups for db2 use, these groups are for different aspects of the databae users, db2grp1 for users, db2fgrp1 for fenced users, and dasadm1 for db2 admin server administrators.
 

@@ -3,12 +3,12 @@ layout: post
 title: CentOS virtual networking, virbr and vlan tagging
 ---
 
-#VLAN Tagging
+# VLAN Tagging
 VLANS are great for security, and are really helpful if you want to put together anything more than a simple network. Although VLAN technlolgy can be a great value add to your network, it comes with a fair bit of complexity. Get ready to put your thinking caps on, and have a whiteboard near by!
 
 This won't be a comprehensive discussion about VLAN's, VLAN Tagging, or VLAN Trunking, but rather a little introduction to VLANs in CentOS networking. 
 
-##Basic Network Configuration
+## Basic Network Configuration
 First of all we're going to want to check out our networking config and see what we're working with. 
 
     ip a
@@ -30,7 +30,7 @@ If you'd like more information about the module, use the modinfo command:
 
     modinfo 8021q
 
-##Network Interface Configuration with ifcfg files
+## Network Interface Configuration with ifcfg files
 
 Next we're going to setup our network interfaces to use vlan tagging using ifcfg files. 
 
@@ -59,7 +59,7 @@ Restart the networking service in order for the changes to take effect. As root 
 
     # systemctl restart network
 
-#Virtual Bridging 
+# Virtual Bridging 
 
 I've been working on setting up a KVM server and part of that config requires a network bridge to route connections between the virtual machines that will live inside that server. Setting up a bridge is fairly straightforward once you get your head around the config files.
 
@@ -98,7 +98,7 @@ After you're done with this configuration file you're basically done. Run the ne
     systemctl restart network 
     
 
-#Putting it together
+# Putting it together
 Now that we've seen how to do all of the above, we want to put everything together. 
 
 You will create your ethX, ethX.192, and virbr0 config-scripts, but this time you'll want to comment out the IP information from the ethX.192 file and and put it into the ifcfg-virbr0 config. This will make more sense when you look at the configuration.

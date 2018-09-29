@@ -3,11 +3,11 @@ layout: post
 title: SUDO in style
 ---
 
-##SUDO and the meaning of life.
+## SUDO and the meaning of life.
 
 If you've been around linux or mac for long, then you've likey seen the word *sudo* somewhere in the mix. Where does the term come from? What does it mean? My trusty companion [@vicenac](http://twitter.com/vicenac) and I had a little debate about this today.
 
-###SUDO Demystified 
+### SUDO Demystified 
 
 In linux you can use sudo to run a command with root privilidge. This comes in handy if you're security minded and don't execute commands as root very often.
 

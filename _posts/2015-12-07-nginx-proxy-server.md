@@ -2,11 +2,11 @@
 layout: post
 title: Reverse Proxy Server using NGINX
 ---
-##Reverse Proxy User Guide
-####RP = Reverse Proxy
+## Reverse Proxy User Guide
+#### RP = Reverse Proxy
 The current RevProxy1.fuller.edu is built on Centos7 and uses Nginx as it's proxy server. _The setup for this internal RP is very similar to our cloud RP located at 66.110.189.96._ Simply put the reverse proxy works by consuming http requests bound for internal servers and then proxies the communication between client and server. We do this by pointing server hostnames in DNS to the reverse proxy's IP address. 
 
-##DNS
+## DNS
 
 Lets use **webserver.fuller.edu** as an example. in the DNS the entry looks like this:
   
@@ -39,7 +39,7 @@ After we include the conf.d directory we can start to build out our RP config fi
 
 It is not necessary to put the .httpd on the file name, but it can become helpful if you start making httpd and https conf files. 
 
-###RP Specific Configuration Files
+### RP Specific Configuration Files
 Below is an example of the config file used for **webserver-dev** on the internal RP server.  
 
 {% highlight nginx lineos %}  
@@ -68,7 +68,7 @@ Below is an example of the config file used for **webserver-dev** on the interna
     }
 {% endhighlight %}
 
-##Add New Host To RP Server
+## Add New Host To RP Server
 On the host create a file called servername.http.conf in the **/etc/nginx/conf.d/** directory
 
     vim /etc/nginx/conf.d/servername.httpd.conf
@@ -77,22 +77,22 @@ you can now paste the above config into this new file. Make sure to change the *
 
 After creating the new configuration you'll need to restart the httpd service. There are a few ways to do this, neither one is better than the other, although some may work on some systems, others may not. 
 
-####Centos 7 (Systemctl)
+#### Centos 7 (Systemctl)
 {% highlight bash lineos  %}
     systemctl restart nginx
 {% endhighlight  %}
-####Centos 7 (Service)
+#### Centos 7 (Service)
 
 {% highlight bash lineos  %}    
     service nginx restart
 {% endhighlight  %}
 
-####Centos <=6 
+#### Centos <=6 
 {% highlight bash lineos  %}
     /etc/init.d/nginx restart
 {% endhighlight  %}
 
-####Ubuntu/Debian Systems
+#### Ubuntu/Debian Systems
 {% highlight bash lineos  %}
 
     service nginx restart

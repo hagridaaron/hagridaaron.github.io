@@ -3,7 +3,7 @@ layout: post
 title: Moving Out? Take Wordpress With You!
 ---
 
-##A Guide On Moving WordPress Blogs From Host To Host
+## A Guide On Moving WordPress Blogs From Host To Host
 
 Everyone loves the usibility and abundance of wordpress utilities out in the world. This means that everywhere you look you see wordpress blogs. This is wonderful! ...until you have to move hosting providers, change servers, or want to move from dev/test to prod. This guide aims to give you the tools to move your WordPress instance from one machine to the other. 
 
@@ -16,12 +16,12 @@ There are a few steps:
 
 For this example we will use **server1** (old host) and **server2** (new host)
 
-###Install Wordpress on New Server
+### Install Wordpress on New Server
 
 Can use the instructions on the Wordpress site, or check out the ansible playbook I wrote to automate the process [Link to Github](https://github.com/hagridaaron/ansible-wordpress).
 
 
-###Export Database From Old Host
+### Export Database From Old Host
 
 We need to make sure that our new site will work at the new url. To do this, go into wordpress and select *Settings* from there you can edit the *WordPress Address* and *Site Address*.
 
@@ -83,7 +83,7 @@ Next we can select a directory on our local machine that the workbench will dump
 
 Close the connection to the databse, and we will move on to the next step.
 
-###Import Database To New Host
+### Import Database To New Host
 
 We will do something very similar but in reverse order. With one or two added steps.
 
@@ -111,7 +111,7 @@ Click the browse button to select the folder where your dump is, and then click 
 Make sure that you have the same DB users from the old DB on the new DB, this can cause Database Connection Issues if they're not present. Most of the time this user can be found in the **wp-cofig.php**.
 
 
-###Transfer WP Config Files From Old Host To New Host
+### Transfer WP Config Files From Old Host To New Host
 
 Now all that's left to do is transfer our wp config files from the www root to our new host. To achieve this, I will use the rsync command. 
 
