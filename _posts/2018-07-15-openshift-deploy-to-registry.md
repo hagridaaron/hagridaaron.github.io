@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Deploying Openshift BuildConfig to Private Docker Registry  
---
+---
+
 OpenShift Container Platform comes with an internal registry. By default when you create an application the build configuration is set up to push the images into the internal registry and the deployment configuration is set up to pull images from this internal registry.
 
 Some people may be interested in OpenShift pushing the resultant application docker image ,after it is built, into a separate docker registry that they run outside OpenShift.
