@@ -9,7 +9,7 @@ Most of the process can be adapted to newer or older versions of the OS, you'll 
 
 I like to be lazy so I put all of this together into a script that I'll put at the end of the article. Also I'd like to give credit to the folks over at [Picky Sysadmin](https://www.pickysysadmin.ca/2014/04/27/how-to-convert-rhel-5-x-to-centos-5-x/) for inspiring this article. 
 
-##Process
+## Process
 
 * Clean up the yum cache
 

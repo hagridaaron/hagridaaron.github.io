@@ -3,6 +3,7 @@ layout: post
 title: Deploying Openshift BuildConfig to Private Docker Registry  
 ---
 
+
 OpenShift Container Platform comes with an internal registry. By default when you create an application the build configuration is set up to push the images into the internal registry and the deployment configuration is set up to pull images from this internal registry.
 
 Some people may be interested in OpenShift pushing the resultant application docker image ,after it is built, into a separate docker registry that they run outside OpenShift.
@@ -13,7 +14,7 @@ We will supply .docker/config.json file with valid Docker Registry credentials i
 
 The .docker/config.json file is found in your home directory by default and has the following info (it may be a json file instead of yaml) :
 
-```
+```shell
 auths:
   https://index.docker.io/v1/: 
     auth: "YWRfbGzhcGU6R2labnRib21ifTE=" 
@@ -24,14 +25,14 @@ If you connected to DockerHub before, you will already have this in your home di
 
 Run the following command to add a secret to your project that pulls the auth details from the docker config. We are naming the secret as `dockerhub-secret`. The output of the command shows `secret/dockerhub-secret` is created.
 
-```
+```shell
 $ oc secrets new dockerhub-secret ~/.docker/config.json
 secret/dockerhub-secret
 ```
 
 you can also verify the list of secrets by running `oc get secrets` as shown below. This also lists the secret `dockerhub-secret` that we just created.
 
-```
+```shell
 NAME                                   TYPE                                  DATA      AGE
 dockerhub-secret                       kubernetes.io/dockerconfigjson        1         9m
 ```
@@ -45,7 +46,7 @@ oc secrets new-dockercfg dockerhub --docker-server=DOCKER_REGISTRY_SERVER --dock
 ## Add secret to your Builder service account
 Each build in your project runs with using the builder service account. In this example we're using the `jeknins` service account. To get a list of service accounts in your project run and it shows the builder service account as one of the service accounts that are automatically created for you when you created a new project. **Note** `sa` is short form for service account.
 
-```
+```shell 
 $ oc get sa
 NAME       SECRETS   AGE
 builder    2         99d
@@ -56,13 +57,13 @@ jenkins    3         99d
 
 We will now edit the `jenkins` SA and add the secret in there. Run the following command and it brings up the builder service account configuration in your default editor
 
-```
+```shell
 $ oc edit sa builder
 ```
 
 Edit the file to add the `dockerhub-secret` secret to the secrets list as shown below. Be careful about the indentation.
 
-```
+```shell
 apiVersion: v1
 imagePullSecrets:
 - name: jenkins-dockercfg-d54lx
@@ -88,7 +89,7 @@ Now your builder can use the newly created secret.
 
 In your BuildConfig there will be a line that looks something similar to the following:
 
-```
+```shell
 spec:
   output:
     to:
@@ -102,7 +103,7 @@ Note that this is telling the builder to push the output to the ImageStream `my-
 Now, we  will change the imagestream location to point to our Docker Registry as follows.
 
 
-```
+```shell
 spec:
   output:
     to:
